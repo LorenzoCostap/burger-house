@@ -6,19 +6,6 @@ O objetivo do projeto foi criar uma aplicação simples, moderna e totalmente fu
 
 ---
 
-# 📷 Demonstração
-
-> Adicione aqui uma ou mais imagens do sistema.
-
-Exemplo:
-
-```
-/assets/print-home.png
-/assets/print-admin.png
-```
-
----
-
 # 🚀 Funcionalidades
 
 ## 🍔 Catálogo de Produtos
