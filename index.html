@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Burger House</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<header>
+
+    <h1>🍔 Burger House</h1>
+
+    <div>
+
+        <button id="btnTema" onclick="alternarTema()">
+            🌙
+        </button>
+
+        <button id="btnAdmin" onclick="abrirPainelAdmin()">
+            ⚙️ Administração
+        </button>
+
+    </div>
+
+</header>
+
+<main class="container">
+
+    <section class="ladoEsquerdo">
+
+        <input
+            type="text"
+            id="pesquisa"
+            placeholder="🔍 Pesquisar produto..."
+            onkeyup="pesquisarProdutos()">
+
+        <div class="filtros">
+
+            <button class="ativo"
+            onclick="filtrarCategoria('Todos', this)">
+                Todos
+            </button>
+
+            <button
+            onclick="filtrarCategoria('Lanche', this)">
+                🍔 Lanches
+            </button>
+
+            <button
+            onclick="filtrarCategoria('Bebida', this)">
+                🥤 Bebidas
+            </button>
+
+            <button
+            onclick="filtrarCategoria('Sobremesa', this)">
+                🍰 Sobremesas
+            </button>
+
+        </div>
+
+        <section id="produtos" class="produtos"></section>
+
+    </section>
+
+    <aside class="ladoDireito">
+
+        <div id="carrinho">
+
+            <h2>🛒 Carrinho</h2>
+
+            <div id="listaCarrinho">
+
+                <p>Seu carrinho está vazio.</p>
+
+            </div>
+
+            <h3 id="total">
+
+                Total: R$ 0,00
+
+            </h3>
+
+            <button onclick="abrirModal()">
+
+                Finalizar Pedido
+
+            </button>
+
+        </div>
+
+        <div id="historico">
+
+            <h2>📋 Histórico</h2>
+
+            <div id="listaHistorico">
+
+                <p>Nenhum pedido realizado.</p>
+
+            </div>
+
+        </div>
+
+    </aside>
+
+</main>
+
+<!-- Modal Pedido -->
+
+<div id="modalPedido" class="modal">
+
+    <div class="modalConteudo">
+
+        <h2>Confirmar Pedido</h2>
+
+        <input
+            id="nomeCliente"
+            placeholder="Nome">
+
+        <input
+            id="telefoneCliente"
+            placeholder="Telefone">
+
+        <select
+            id="tipoPedido"
+            onchange="alterarTipoPedido()">
+
+            <option>Entrega</option>
+            <option>Retirada</option>
+
+        </select>
+
+        <input
+            id="enderecoCliente"
+            placeholder="Endereço">
+
+        <select id="pagamento">
+
+            <option>Pix</option>
+            <option>Cartão</option>
+            <option>Dinheiro</option>
+
+        </select>
+
+        <div id="resumoPedido"></div>
+
+        <h3 id="totalPedido"></h3>
+
+        <div class="botoesModal">
+
+            <button onclick="fecharModal()">
+
+                Cancelar
+
+            </button>
+
+            <button onclick="confirmarPedido()">
+
+                Confirmar
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div id="modalAdicionais" class="modal">
+
+    <div class="modalConteudo">
+
+        <h2>Escolha os adicionais</h2>
+
+        <div id="listaAdicionais"></div>
+
+        <div class="botoesModal">
+
+            <button onclick="fecharModalAdicionais()">
+
+                Cancelar
+
+            </button>
+
+            <button onclick="confirmarAdicionais()">
+
+                Adicionar
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div id="modalAdmin" class="modal">
+
+    <div class="modalConteudo">
+
+        <h2>⚙️ Administração</h2>
+
+        <input
+            type="text"
+            id="novoNome"
+            placeholder="Nome do produto">
+
+        <input
+            type="number"
+            id="novoPreco"
+            placeholder="Preço">
+
+        <select id="novaCategoria">
+
+            <option>Lanche</option>
+            <option>Bebida</option>
+            <option>Sobremesa</option>
+
+        </select>
+
+        <div class="botoesModal">
+
+            <button onclick="fecharPainelAdmin()">
+                Fechar
+            </button>
+
+            <button
+    id="btnCadastrar"
+    onclick="cadastrarProduto()">
+
+    Cadastrar
+
+</button>
+
+            </div>
+
+            <hr>
+
+<h3>Produtos cadastrados</h3>
+
+<div id="listaProdutosAdmin"></div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
